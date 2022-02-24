@@ -1,0 +1,32 @@
+{{#if userNumber}}
+<h4 class="md-headline">User number {{userNumber}}</h4>
+<span class="md-subhead">Name: {{@user.fullName}}</span>
+{{/if}}
+{{#if this.showInformation}}
+    <div class="md-list-item-text user-content" layout="column">
+    <h5>Email: {{@user.email}}</h5>
+    <h5>DOB: {{@user.dateOfBirth}}</h5>
+    <h5>Savings: {{format-currency @user.currentSavingsInCents}}</h5>
+    <h5>Checking: {{format-currency @user.currentCheckingsInCents}}</h5>
+    {{#if @user.isOverEighteen}}
+    <h4 class="age-alert">They are old enough</h4>
+    {{/if}}
+</div>
+
+<div class="md-input-container md-block">
+    <label for="notes">Notes</label>
+    <input value={{@user.notes}}
+        autofocus
+        type="text"
+        name="notes"
+        class="md-input form-input">
+</div>    
+{{/if}}
+
+
+ <button class="md-button" {{on "click" this.toggleInformation}}>
+    {{if this.showInformation "Hide info" "Show info"}}
+  </button>
+  <button class="md-button">
+    Save
+  </button>

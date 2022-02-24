@@ -1,0 +1,5 @@
+{{#each @model as |user index|}}
+<UserCard @user={{user}} @index={{index}}></UserCard>
+{{/each}}
+
+{{outlet}}
