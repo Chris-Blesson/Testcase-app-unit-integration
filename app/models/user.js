@@ -1,10 +1,4 @@
 import Model, { attr } from '@ember-data/model';
-import { gte } from '@ember/object/computed';
-
-
-
-
-
 export default class UserModel extends Model {
 
     @attr({}) attributes;
@@ -52,7 +46,6 @@ export default class UserModel extends Model {
     }
 
     get isOverEighteen() {
-        console.log(this.age);
         return this.age > 18;
     }
 
